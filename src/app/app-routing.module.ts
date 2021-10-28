@@ -10,7 +10,7 @@ import { PaginaContactoComponent } from './componentes/pagina-contacto/pagina-co
 
 const routes: Routes = [
   //{ path: '', component: PaginaPrincipalComponent },
-  { path: '', redirectTo: 'inicio', pathMatch: 'full' },
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'login', component: PaginaLoginComponent },
   { path: 'inicio', component: PaginaPrincipalComponent },
   { path: 'busqueda', component: PaginaBusquedaProductosComponent },
