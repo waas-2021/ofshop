@@ -1,7 +1,7 @@
-<nav class="navbar navbar-dark bg-dark">
+<nav class="navbar navbar-dark bg-dark" *ngIf="loggedIn()">
   <!-- Navbar content -->
   <div class="container-fluid">
-    <a class="navbar-brand" routerLink="/">Menú</a>
+    <a class="navbar-brand" routerLink="/inicio">Menú</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -11,7 +11,13 @@
           <a class="nav-link active" aria-current="page" routerLink="/"><i class="bi bi-house-door-fill"></i> Inicio</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/busqueda"><i class="bi bi-search"></i> Busqueda</a>
+          <a class="nav-link" routerLink="/busqueda"><i class="bi bi-search"></i> Búsqueda</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/contacto"><i class="bi bi-envelope"></i> Contáctanos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" style="cursor:pointer;" (click)="logout()"><i class="bi bi-box-arrow-right" s></i> Logout</a>
         </li>
       </ul>
     </div>
