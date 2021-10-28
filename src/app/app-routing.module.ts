@@ -5,11 +5,17 @@ import { PaginaPrincipalComponent } from './componentes/pagina-principal/pagina-
 import { PaginaNoEncontradaComponent } from './componentes/pagina-no-encontrada/pagina-no-encontrada.component'
 import { PaginaBusquedaProductosComponent } from './componentes/pagina-busqueda-productos/pagina-busqueda-productos.component';
 import { PaginaProductoComponent } from './componentes/pagina-producto/pagina-producto.component';
+import { PaginaLoginComponent } from './componentes/pagina-login/pagina-login.component';
+import { PaginaContactoComponent } from './componentes/pagina-contacto/pagina-contacto.component'
 
 const routes: Routes = [
-  { path: '', component: PaginaPrincipalComponent },
+  //{ path: '', component: PaginaPrincipalComponent },
+  { path: '', redirectTo: 'inicio', pathMatch: 'full' },
+  { path: 'login', component: PaginaLoginComponent },
+  { path: 'inicio', component: PaginaPrincipalComponent },
   { path: 'busqueda', component: PaginaBusquedaProductosComponent },
   { path: 'producto/:id', component: PaginaProductoComponent },
+  { path: 'contacto', component: PaginaContactoComponent },
   { path: '**', component: PaginaNoEncontradaComponent }
 ];
 

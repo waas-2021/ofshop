@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -8,7 +10,9 @@ import { Component } from '@angular/core';
 export class AppComponent {
 
   myLocalStorage = window.localStorage;
-
+  
+  constructor(private router: Router) { }
+  
   title = 'ofshop';
 
   setData(identifier: string, value: any) {
@@ -31,6 +35,16 @@ export class AppComponent {
   removeData(identifier: string){
     console.log("removeData");
     this.myLocalStorage.removeItem(identifier);
+  }
+
+  loggedIn(){
+    return localStorage.getItem('token');
+  }
+
+  logout(){
+    alert("Logged out");
+    localStorage.removeItem('token');
+    this.router.navigate(['login']);
   }
 
 }

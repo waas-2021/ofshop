@@ -14,6 +14,8 @@ import { PaginaBusquedaProductosComponent } from './componentes/pagina-busqueda-
 
 import { BusquedaProductosServicioService } from './servicios/productos/busqueda-productos-servicio.service';
 import { PaginaProductoComponent } from './componentes/pagina-producto/pagina-producto.component';
+import { PaginaLoginComponent } from './componentes/pagina-login/pagina-login.component';
+import { PaginaContactoComponent } from './componentes/pagina-contacto/pagina-contacto.component';
 
 @NgModule({
   declarations: [
@@ -21,13 +23,16 @@ import { PaginaProductoComponent } from './componentes/pagina-producto/pagina-pr
     PaginaPrincipalComponent,
     PaginaNoEncontradaComponent,
     PaginaBusquedaProductosComponent,
-    PaginaProductoComponent
+    PaginaProductoComponent,
+    PaginaLoginComponent,
+    PaginaContactoComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [BusquedaProductosServicioService],
   bootstrap: [AppComponent]
