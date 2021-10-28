@@ -15,6 +15,8 @@ import { PaginaBusquedaProductosComponent } from './componentes/pagina-busqueda-
 import { BusquedaProductosServicioService } from './servicios/productos/busqueda-productos-servicio.service';
 import { PaginaProductoComponent } from './componentes/pagina-producto/pagina-producto.component';
 
+import {NgxPaginationModule} from 'ngx-pagination';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +29,8 @@ import { PaginaProductoComponent } from './componentes/pagina-producto/pagina-pr
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    NgxPaginationModule
   ],
   providers: [BusquedaProductosServicioService],
   bootstrap: [AppComponent]
