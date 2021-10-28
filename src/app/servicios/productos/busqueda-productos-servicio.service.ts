@@ -13,7 +13,7 @@ export class BusquedaProductosServicioService {
   
   constructor(private http: HttpClient ) { this.http = http }
 
-  busqueda = (query: string, page: string): Promise<ProductosInterface> => {
+  busqueda = (query: string, page: number): Promise<ProductosInterface> => {
     let promise = new Promise<ProductosInterface>((resolve, reject) => {
       if( this.cachedValues[query] ) {
         resolve(this.cachedValues[query]) 

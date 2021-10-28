@@ -17,6 +17,8 @@ import { PaginaProductoComponent } from './componentes/pagina-producto/pagina-pr
 import { PaginaLoginComponent } from './componentes/pagina-login/pagina-login.component';
 import { PaginaContactoComponent } from './componentes/pagina-contacto/pagina-contacto.component';
 
+import {NgxPaginationModule} from 'ngx-pagination';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,6 +34,7 @@ import { PaginaContactoComponent } from './componentes/pagina-contacto/pagina-co
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    NgxPaginationModule,
     ReactiveFormsModule
   ],
   providers: [BusquedaProductosServicioService],
