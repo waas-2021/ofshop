@@ -1,4 +1,4 @@
-<div>
+<div *ngIf="registro">
     <h1>
         <i class="bi bi-bag"></i>
         Resumen de tu compra
@@ -45,12 +45,17 @@
             </div>
         </div>
         <br>
-        <div class="row align-items-end">
+        <!--div class="row align-items-end">
             <div class="col">
                 <a class="btn btn-success"  id="paypal" (click)="pagoPaypal(registro.price)">
                     <i class="bi bi-cart-plus-fill"></i>
                     Confirmar tu compra
                 </a>
+            </div>
+        </div-->
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div id="paypal"></div>
             </div>
         </div>
     </div>

@@ -31,24 +31,34 @@ export class PaginaCompraProductosComponent implements OnInit {
     this.ruta.params.subscribe(params=>{
       //rastreo.rastrearProducto().subscribe((data)=>{console.log(data)});
       this.bskModel.q = params['id'];
+      this.sendQuery();
     });
-  }
-
-  ngOnInit(): void {
-    this.sendQuery();
-  }
-
-  pagoPaypal = (price:any)=>{
     render({
       id:"#paypal",
       currency:"MXN",
-      value:price,
-      onApprove:()=>{
-
+      value: "50",
+      onApprove:(details)=>{
+        console.log(details);
+        console.log("aprovado");
       }
     })
   }
-  
+
+  ngOnInit(): void {
+  }
+
+  pagoPaypal = (price:any)=>{
+    /*render({
+      id:"#paypal",
+      currency:"MXN",
+      value:price,
+      onApprove:(details)=>{
+        console.log(details);
+        console.log("aprovado");
+      }
+    })*/
+  }
+
   sendQuery = () => {
     this.busquedaservicio.busqueda(this.bskModel.q).then( (response) => {
       console.log(response);
