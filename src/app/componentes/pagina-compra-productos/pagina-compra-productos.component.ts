@@ -10,7 +10,8 @@ import { BusquedaProductoModel } from 'src/app/clases/productos/busqueda-product
 
 import {render} from 'creditcardpayments/creditCardPayments';
 
-import {RastreoProductoService} from '../../servicios/rastreo/rastreo-producto.service';
+//import {RastreoProductoService} from '../../servicios/rastreo/rastreo-producto.service';
+
 @Component({
   selector: 'app-pagina-compra-productos',
   templateUrl: './pagina-compra-productos.component.html',
@@ -25,10 +26,10 @@ export class PaginaCompraProductosComponent implements OnInit {
   constructor(
     private ruta:ActivatedRoute,
     private busquedaservicio:BusquedaProductoServicioService,
-    private rastreo:RastreoProductoService
+    //private rastreo:RastreoProductoService
   ) { 
     this.ruta.params.subscribe(params=>{
-      rastreo.rastrearProducto().subscribe((data)=>{console.log(data)});
+      //rastreo.rastrearProducto().subscribe((data)=>{console.log(data)});
       this.bskModel.q = params['id'];
     });
   }
@@ -36,6 +37,7 @@ export class PaginaCompraProductosComponent implements OnInit {
   ngOnInit(): void {
     this.sendQuery();
   }
+
   pagoPaypal = (price:any)=>{
     render({
       id:"#paypal",
@@ -45,7 +47,8 @@ export class PaginaCompraProductosComponent implements OnInit {
 
       }
     })
-  } 
+  }
+  
   sendQuery = () => {
     this.busquedaservicio.busqueda(this.bskModel.q).then( (response) => {
       console.log(response);

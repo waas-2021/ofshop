@@ -29,14 +29,6 @@
             {{registro.price_f}}
             </div>
         </div>
-        <div class="row align-items-end">
-            <div class="col">
-                <a class="btn btn-success"  id="paypal" (click)="pagoPaypal(registro.price)">
-                    <i class="bi bi-cart-plus-fill"></i>
-                    Confirmar tu compra
-                </a>
-            </div>
-        </div>
         <br>
         <div class="row align-items-center border border-primary col col-md-6 offset-md-3">
             <div class="col col-md-3">
@@ -50,6 +42,15 @@
             </div>
             <div style="font-size:1.5em" class="col col-md-3">
             {{registro.price_f}}
+            </div>
+        </div>
+        <br>
+        <div class="row align-items-end">
+            <div class="col">
+                <a class="btn btn-success"  id="paypal" (click)="pagoPaypal(registro.price)">
+                    <i class="bi bi-cart-plus-fill"></i>
+                    Confirmar tu compra
+                </a>
             </div>
         </div>
     </div>
