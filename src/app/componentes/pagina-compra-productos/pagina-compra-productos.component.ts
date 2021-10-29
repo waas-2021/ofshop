@@ -33,22 +33,15 @@ export class PaginaCompraProductosComponent implements OnInit {
       this.bskModel.q = params['id'];
       this.sendQuery();
     });
-    render({
-      id:"#paypal",
-      currency:"MXN",
-      value: "50",
-      onApprove:(details)=>{
-        console.log(details);
-        console.log("aprovado");
-      }
-    })
+    this.pagoPaypal("50");
   }
 
   ngOnInit(): void {
+    
   }
 
   pagoPaypal = (price:any)=>{
-    /*render({
+    render({
       id:"#paypal",
       currency:"MXN",
       value:price,
@@ -56,7 +49,7 @@ export class PaginaCompraProductosComponent implements OnInit {
         console.log(details);
         console.log("aprovado");
       }
-    })*/
+    })
   }
 
   sendQuery = () => {
