@@ -8,12 +8,16 @@ import { ProductoInterface } from 'src/app/interfaces/productos/producto-interfa
 
 import { BusquedaProductoModel } from 'src/app/clases/productos/busqueda-producto-model';
 
+import {render} from 'creditcardpayments/creditCardPayments';
+
+//import {RastreoProductoService} from '../../servicios/rastreo/rastreo-producto.service';
+
 @Component({
-  selector: 'app-pagina-producto',
-  templateUrl: './pagina-producto.component.html',
-  styleUrls: ['./pagina-producto.component.css']
+  selector: 'app-pagina-compra-productos',
+  templateUrl: './pagina-compra-productos.component.html',
+  styleUrls: ['./pagina-compra-productos.component.css']
 })
-export class PaginaProductoComponent implements OnInit {
+export class PaginaCompraProductosComponent implements OnInit {
 
   registro!: ProductoInterface;
   bskModel = new BusquedaProductoModel('');
@@ -21,15 +25,38 @@ export class PaginaProductoComponent implements OnInit {
 
   constructor(
     private ruta:ActivatedRoute,
-    private busquedaservicio:BusquedaProductoServicioService
+    private busquedaservicio:BusquedaProductoServicioService,
+    //private rastreo:RastreoProductoService
   ) { 
     this.ruta.params.subscribe(params=>{
+      //rastreo.rastrearProducto().subscribe((data)=>{console.log(data)});
       this.bskModel.q = params['id'];
+      this.sendQuery();
     });
+    render({
+      id:"#paypal",
+      currency:"MXN",
+      value: "50",
+      onApprove:(details)=>{
+        console.log(details);
+        console.log("aprovado");
+      }
+    })
   }
 
   ngOnInit(): void {
-    this.sendQuery();
+  }
+
+  pagoPaypal = (price:any)=>{
+    /*render({
+      id:"#paypal",
+      currency:"MXN",
+      value:price,
+      onApprove:(details)=>{
+        console.log(details);
+        console.log("aprovado");
+      }
+    })*/
   }
 
   sendQuery = () => {

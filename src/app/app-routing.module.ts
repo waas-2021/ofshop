@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { PaginaPrincipalComponent } from './componentes/pagina-principal/pagina-principal.component';
 import { PaginaNoEncontradaComponent } from './componentes/pagina-no-encontrada/pagina-no-encontrada.component'
 import { PaginaBusquedaProductosComponent } from './componentes/pagina-busqueda-productos/pagina-busqueda-productos.component';
+import { PaginaCompraProductosComponent } from './componentes/pagina-compra-productos/pagina-compra-productos.component';
 import { PaginaProductoComponent } from './componentes/pagina-producto/pagina-producto.component';
 import { PaginaLoginComponent } from './componentes/pagina-login/pagina-login.component';
 import { PaginaContactoComponent } from './componentes/pagina-contacto/pagina-contacto.component'
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'busqueda', component: PaginaBusquedaProductosComponent },
   { path: 'producto/:id', component: PaginaProductoComponent },
   { path: 'contacto', component: PaginaContactoComponent },
+  { path: 'carrito/:id', component: PaginaCompraProductosComponent },
   { path: '**', component: PaginaNoEncontradaComponent }
 ];
 

@@ -16,6 +16,8 @@ import { BusquedaProductosServicioService } from './servicios/productos/busqueda
 import { PaginaProductoComponent } from './componentes/pagina-producto/pagina-producto.component';
 import { PaginaLoginComponent } from './componentes/pagina-login/pagina-login.component';
 import { PaginaContactoComponent } from './componentes/pagina-contacto/pagina-contacto.component';
+import { PaginaCompraProductosComponent } from './componentes/pagina-compra-productos/pagina-compra-productos.component';
+import { PaginaRastreoProductoComponent } from './componentes/pagina-rastreo-producto/pagina-rastreo-producto.component';
 
 import {NgxPaginationModule} from 'ngx-pagination';
 
@@ -27,7 +29,9 @@ import {NgxPaginationModule} from 'ngx-pagination';
     PaginaBusquedaProductosComponent,
     PaginaProductoComponent,
     PaginaLoginComponent,
-    PaginaContactoComponent
+    PaginaContactoComponent,
+    PaginaCompraProductosComponent,
+    PaginaRastreoProductoComponent
   ],
   imports: [
     BrowserModule,
