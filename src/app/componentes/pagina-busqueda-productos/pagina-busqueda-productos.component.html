@@ -10,7 +10,7 @@
         <input type="text" #q="ngModel" [(ngModel)]="bskModel.q" name="q" minlength="2" class="form-control" required [ngClass]="{'is-valid': !q.invalid, 'is-invalid': q.invalid}" aria-label="Escribe el texto a buscar..." aria-describedby="btnSearch" placeholder="Escribe el texto a buscar..."/>
         <button type="submit" [disabled]="!myform.valid" class="signup-btn btn btn-secondary" title="Buscar Productos" id="btnSearch">
             <i class="bi bi-search"></i>
-            Buscar Productos
+            <span class="d-none d-md-inline-block d-lg-inline-block">Buscar Productos</span>
         </button>
     </div>
 </form>
