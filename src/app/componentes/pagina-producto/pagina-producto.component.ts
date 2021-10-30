@@ -1,12 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { BusquedaProductoServicioService } from 'src/app/servicios/productos/busqueda-producto-servicio.service';
 
 import { ProductoInterface } from 'src/app/interfaces/productos/producto-interface';
 
 import { BusquedaProductoModel } from 'src/app/clases/productos/busqueda-producto-model';
+
+import { LstorageService } from 'src/app/servicios/locstorage/lstorage.service';
 
 @Component({
   selector: 'app-pagina-producto',
@@ -20,12 +22,11 @@ export class PaginaProductoComponent implements OnInit {
   carga: boolean = false;
 
   constructor(
-    private ruta:ActivatedRoute,
-    private busquedaservicio:BusquedaProductoServicioService
+    private ruta:Router,
+    private busquedaservicio:BusquedaProductoServicioService,
+    private lstorageservicio: LstorageService
   ) { 
-    this.ruta.params.subscribe(params=>{
-      this.bskModel.q = params['id'];
-    });
+  
   }
 
   ngOnInit(): void {
@@ -49,5 +50,38 @@ export class PaginaProductoComponent implements OnInit {
   numberWithCommas(x: number):string{
       return x.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   };
+
+  agregarACarrito(){
+   /*let productoA = this.lstorageservicio.getCarrito().product;
+    productoA.push(this.registro);
+
+    var costo=0;
+    for(var i=0; i < productoA.length; i++){
+      costo += productoA[i].price;
+    }
+
+    this.lstorageservicio.addCarrito({
+      quantity: productoA.length,
+      product: productoA,
+      total: costo,
+    });
+    console.log(this.lstorageservicio.getCarrito());*/
+
+    localStorage.getItem('carrito');
+    
+    this.lstorageservicio.addCarrito({
+      quantity: 1,
+      product: this.registro,
+      subtotal: 1*Number(this.numberWithCommas(this.registro.price)),
+    });
+    console.log(this.lstorageservicio.getCarrito());
+    this.ruta.navigate(['carrito']);
+
+  }
+
+
+  /*agregarACarrito1(){
+    this.lstorageservicio.addCarrito(this.registro);
+  }*/
 
 }
